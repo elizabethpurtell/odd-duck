@@ -4,6 +4,8 @@
 // ***** GLOBALS ******
 let votingRounds = 25;
 const productArray = [];
+let randomIndexArray = [];
+
 
 // ***** DOM WINDOWS ****
 let imgContainer = document.getElementById('img-container');
@@ -28,17 +30,18 @@ function randomIndexGenerator() {
 }
 
 function renderImgs() {
-  // DONE: get 3 random images on the page
-  let imageOneIndex = randomIndexGenerator();
-  let imageTwoIndex = randomIndexGenerator();
-  let imageThreeIndex = randomIndexGenerator();
 
-  // DONE: make sure they are unique
-  while (imageOneIndex === imageTwoIndex === imageThreeIndex); {
-    imageTwoIndex = randomIndexGenerator();
-    imageOneIndex = randomIndexGenerator();
-    imageThreeIndex = randomIndexGenerator();
+  while (randomIndexArray.length < 3) {
+    let randomNumber = randomIndexGenerator();
+    if (!randomIndexArray.includes(randomNumber)) {
+      randomIndexArray.push(randomNumber);
+    }
   }
+
+  let imageOneIndex = randomIndexArray.pop();
+  let imageTwoIndex = randomIndexArray.pop();
+  let imageThreeIndex = randomIndexArray.pop();
+
 
   imgOne.src = productArray[imageOneIndex].image;
   imgOne.title = productArray[imageOneIndex].name;
@@ -59,8 +62,6 @@ function renderImgs() {
 function handleImgClick(event) {
 
   let imageClicked = event.target.title;
-  // console.dir(event.target);
-  // console.log(imageClicked);
 
   for (let i = 0; i < productArray.length; i++) {
     if (imageClicked === productArray[i].name) {
@@ -90,19 +91,25 @@ function handleShowResults() {
 }
 
 // **** EXECUTABLE CODE *****
-let chairProd = new Product('chair', 'jpg');
-let cthulhuProd = new Product('cthulu', 'jpg');
-let dogduckProd = new Product('dog-duck', 'jpg');
-let dragonProd = new Product('dragon', 'jpg');
-let penProd = new Product('pen', 'jpg');
-let petsweepProd = new Product('pet-sweep', 'jpg');
-let scissorsProd = new Product('scissors', 'jpg');
-let sharkProd = new Product('shark', 'jpg');
+let bagProd = new Product('bag');
+let bananaProd = new Product('banana');
+let bathroomProd = new Product('bathroom');
+let bootsProd = new Product('boots');
+let breakfastProd = new Product('breakfast');
+let bubblegumProd = new Product('bubblegum');
+let chairProd = new Product('chair');
+let cthulhuProd = new Product('cthulu');
+let dogduckProd = new Product('dog-duck');
+let dragonProd = new Product('dragon');
+let penProd = new Product('pen');
+let petsweepProd = new Product('pet-sweep');
+let scissorsProd = new Product('scissors');
+let sharkProd = new Product('shark');
 let sweepProd = new Product('sweep', 'png');
-let tauntaunProd = new Product('tauntaun', 'jpg');
-let unicornProd = new Product('unicorn', 'jpg');
-let watercanProd = new Product('water-can', 'jpg');
-let wineglassProd = new Product('wine-glass', 'jpg');
+let tauntaunProd = new Product('tauntaun');
+let unicornProd = new Product('unicorn');
+let watercanProd = new Product('water-can');
+let wineglassProd = new Product('wine-glass');
 
 
 productArray.push(chairProd, cthulhuProd, dogduckProd, dragonProd, penProd, petsweepProd, scissorsProd, sharkProd, sweepProd, tauntaunProd, unicornProd, watercanProd, wineglassProd);

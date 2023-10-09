@@ -1,113 +1,85 @@
 /* global */
 
-
-/* from demo items */
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background-color: cornsilk;
-  color: saddlebrown;
-}
-
-main {
-  width: 1024px;
-  margin: 3rem auto;
-  display: grid;
-  grid-template-columns: 250px 4fr;
-  grid-template-rows: 6.5rem 10rem 20rem 40%;
-}
-
-#siteLogo {
-  width: 250px;
-  z-index: 2;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 1;
-  grid-column-end: 3
+  font-family: Arial, sans-serif;
 }
 
 h1 {
-  font-size: 5rem;
-  color: rosybrown;
-  line-height: .8;
-  margin: 3rem 0 1rem;
-  grid-row-start: 1;
-  grid-row-end: 3;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  font-size: 3rem;
+  color: aquamarine;
+  margin-bottom: 20px;
 }
 
-section {
-  /* This element will be a grid item, but also a flex container */
-  background-color: rgba(211, 187, 176, 0.3);
-  grid-row-start: 2;
-  grid-row-end: 4;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+h3 {
+  font-size: 1.5rem;
+  color: rgb(0, 255, 26);
+  margin: 20px;
 }
 
-/* -- goat images --*/
-section img {
-  width: 260px;
-  max-height: 26rem;
-  /*-- aide accessiblity by preventing layout shift 
-  by adding a transparent border when a border is 
-  added in :hover styles --*/
-  border: 5px solid transparent;
-}
-/*-- add hover states so the user can tell what 
-behavior is expected of them--*/
-section img:hover {
-  border: 5px solid rosybrown;
-  cursor: pointer;
-}
-/* once voting ends */
-section.no-voting img:hover {
-  border: 5px solid transparent;
-  cursor: none;
+p{
+  font-size: 1rem;
+  color: aquamarine;
+  margin: 10px;
 }
 
-/* -- results list -- */
-ul {
-  margin: 1rem;
-}
-li {
-  margin: .5rem;
+/* Style the grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px;
+  grid-template-rows: 300px 400px 200px 500px;
+  grid-gap: 10px;
+  row-gap: 30px;
+  max-width: 1025;
+  margin: 50px;
+  padding: 10px;
+  justify-content: center;
+  background-color: rgb(62, 62, 62);
 }
 
-/* -- button -- */
-section + div {
-  background-color: darkgray;
-  color: lightgrey;
-  padding: .5rem 1rem;
-  width: max-content;
-  height: max-content;
-  font-size: .8rem;
-  margin: 1rem;
-
-  /* —— Demo stretch goal —— */
-  /* This code improves the UX. Making it clear what the user should 
-  do once the voting cycle ends. Do not demo this unless you do the 
-  below 'section + div.clicks-allowed' code as well. The class  
-  'clicks-allowed' must be added to the element via the JavaScript. */
-
-  pointer-events: none;
+/* Style the grid items */
+/* header title */
+.grid-item1 {
+  grid-column: 1 / span 5;
+  padding: 20px;
+  text-align: center;
 }
-/* Demo stretch goal: */
-section + div.clicks-allowed {
-  background-color: rosybrown;
+/* images to click */
+.grid-item2 {
+  grid-column: 1 / span 5;
+  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.grid-item2 img {
+  max-width: 300px;
+  max-height: 300px;
+  margin: 20px;
+  border: 2px solid aquamarine;
+}
+/* results button */
+.grid-item3 {
+  grid-column: 3 / 5;
+  align-items: center;
+}
+
+#show-results-btn {
+  width: 200px;
+  height: 100px;
   color: white;
-  cursor: pointer;
-  pointer-events: auto;
+  background-color: red;
+  border-radius: 10px;
+  font-size: 1.75rem;
+  font-weight: 900;
 }
-section + div.clicks-allowed:hover {
-  background-color: rgb(211, 187, 175)
+/* results data list */
+.grid-item4 {
+  grid-column: 1 / span 5;
+  padding: 20px;
+  background-color: rgb(216, 152, 255);
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
 }
