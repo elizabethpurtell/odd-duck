@@ -98,7 +98,7 @@ let bootsProd = new Product('boots');
 let breakfastProd = new Product('breakfast');
 let bubblegumProd = new Product('bubblegum');
 let chairProd = new Product('chair');
-let cthulhuProd = new Product('cthulu');
+let cthulhuProd = new Product('cthulhu');
 let dogduckProd = new Product('dog-duck');
 let dragonProd = new Product('dragon');
 let penProd = new Product('pen');
@@ -112,8 +112,7 @@ let watercanProd = new Product('water-can');
 let wineglassProd = new Product('wine-glass');
 
 
-productArray.push(chairProd, cthulhuProd, dogduckProd, dragonProd, penProd, petsweepProd, scissorsProd, sharkProd, sweepProd, tauntaunProd, unicornProd, watercanProd, wineglassProd);
-
+productArray.push(bagProd, bananaProd, bathroomProd, bootsProd, breakfastProd, bubblegumProd, chairProd, cthulhuProd, dogduckProd, dragonProd, penProd, petsweepProd, scissorsProd, sharkProd, sweepProd, tauntaunProd, unicornProd, watercanProd, wineglassProd);
 
 renderImgs();
 
