@@ -13,7 +13,7 @@ let imgOne = document.getElementById('img-one');
 let imgTwo = document.getElementById('img-two');
 let imgThree = document.getElementById('img-three')
 let resultBtn = document.getElementById('show-results-btn');
-// let resultsList = document.getElementById('results-container');
+
 
 // **** CONSTRUCTOR FUNCTION ****
 function Product(name, imageExtension = 'jpg') {
