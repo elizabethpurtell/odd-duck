@@ -87,6 +87,14 @@ function handleImgClick(event) {
 
   if (votingRounds === 0) {
     imgContainer.removeEventListener('click', handleImgClick);
+
+    //  local storage start here ***
+    // step 1- convert our data to a string/json to store in local storage
+    let stringifyProduct = JSON.stringify(productArray);
+    console.log('stringify Product >>>', stringifyProduct);
+    // step 2 - store string data to local storage
+    localStorage.setItem('myProducts', stringifyProduct);
+    // step 3 getting the code out -- go to executable code
   }
 
 }
@@ -148,28 +156,85 @@ function renderChart() {
 
 
 // **** EXECUTABLE CODE *****
-let bagProd = new Product('bag');
-let bananaProd = new Product('banana');
-let bathroomProd = new Product('bathroom');
-let bootsProd = new Product('boots');
-let breakfastProd = new Product('breakfast');
-let bubblegumProd = new Product('bubblegum');
-let chairProd = new Product('chair');
-let cthulhuProd = new Product('cthulhu');
-let dogduckProd = new Product('dog-duck');
-let dragonProd = new Product('dragon');
-let penProd = new Product('pen');
-let petsweepProd = new Product('pet-sweep');
-let scissorsProd = new Product('scissors');
-let sharkProd = new Product('shark');
-let sweepProd = new Product('sweep', 'png');
-let tauntaunProd = new Product('tauntaun');
-let unicornProd = new Product('unicorn');
-let watercanProd = new Product('water-can');
-let wineglassProd = new Product('wine-glass');
+
+// *** LOCAL STORAGE CONTINUES HERE ***
+// step 3 - get from local storage
+let retrievedProduct = localStorage.getItem('myProducts');
+console.log('products from local storage >>>', retrievedProduct);
+// step 4 - convert to usable code
+let parsedProduct = JSON.parse(retrievedProduct);
+console.log('my parsed products >>>', parsedProduct);
+
+// *** unhappy path out of woods ***
+// *** rebuilding products using the constructor ***
+
+// if (retrievedProduct) {
+//   for (let i = 0; i < parsedProduct.length; i++) {
+//     if (parsedProduct[i].name === 'bagProd') {
+//       let reconstructedSweepProd = new Product(parsedProduct[i].name, 'png');
+//       reconstructedSweepProd.views = parsedProduct[i].views;
+//       reconstructedSweepProd.votes = parsedProduct[i].votes;
+//       productArray.push(reconstructedSweepProd);
+//     } else {
+//       let reconstructedProduct = new Product(parsedProduct[i].name);
+//       reconstructedProduct.views = parsedProduct[i].views;
+//       reconstructedProduct.votes = parsedProduct[i].votes;
+//       productArray.push(reconstructedProduct);
+//     }
+//   }
+// } else {
+//   let bagProd = new Product('bag');
+//   let bananaProd = new Product('banana');
+//   let bathroomProd = new Product('bathroom');
+//   let bootsProd = new Product('boots');
+//   let breakfastProd = new Product('breakfast');
+//   let bubblegumProd = new Product('bubblegum');
+//   let chairProd = new Product('chair');
+//   let cthulhuProd = new Product('cthulhu');
+//   let dogduckProd = new Product('dog-duck');
+//   let dragonProd = new Product('dragon');
+//   let penProd = new Product('pen');
+//   let petsweepProd = new Product('pet-sweep');
+//   let scissorsProd = new Product('scissors');
+//   let sharkProd = new Product('shark');
+//   let sweepProd = new Product('sweep', 'png');
+//   let tauntaunProd = new Product('tauntaun');
+//   let unicornProd = new Product('unicorn');
+//   let watercanProd = new Product('water-can');
+//   let wineglassProd = new Product('wine-glass');
+
+//   productArray.push(bagProd, bananaProd, bathroomProd, bootsProd, breakfastProd, bubblegumProd, chairProd, cthulhuProd, dogduckProd, dragonProd, penProd, petsweepProd, scissorsProd, sharkProd, sweepProd, tauntaunProd, unicornProd, watercanProd, wineglassProd);
+// }
 
 
-productArray.push(bagProd, bananaProd, bathroomProd, bootsProd, breakfastProd, bubblegumProd, chairProd, cthulhuProd, dogduckProd, dragonProd, penProd, petsweepProd, scissorsProd, sharkProd, sweepProd, tauntaunProd, unicornProd, watercanProd, wineglassProd);
+
+//  *** happy path out of the woods ***
+
+if (retrievedProduct) {
+  productArray = parsedProduct;
+} else {
+  let bagProd = new Product('bag');
+  let bananaProd = new Product('banana');
+  let bathroomProd = new Product('bathroom');
+  let bootsProd = new Product('boots');
+  let breakfastProd = new Product('breakfast');
+  let bubblegumProd = new Product('bubblegum');
+  let chairProd = new Product('chair');
+  let cthulhuProd = new Product('cthulhu');
+  let dogduckProd = new Product('dog-duck');
+  let dragonProd = new Product('dragon');
+  let penProd = new Product('pen');
+  let petsweepProd = new Product('pet-sweep');
+  let scissorsProd = new Product('scissors');
+  let sharkProd = new Product('shark');
+  let sweepProd = new Product('sweep', 'png');
+  let tauntaunProd = new Product('tauntaun');
+  let unicornProd = new Product('unicorn');
+  let watercanProd = new Product('water-can');
+  let wineglassProd = new Product('wine-glass');
+
+  productArray.push(bagProd, bananaProd, bathroomProd, bootsProd, breakfastProd, bubblegumProd, chairProd, cthulhuProd, dogduckProd, dragonProd, penProd, petsweepProd, scissorsProd, sharkProd, sweepProd, tauntaunProd, unicornProd, watercanProd, wineglassProd);
+}
 
 renderImgs();
 
