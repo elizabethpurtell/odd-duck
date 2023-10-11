@@ -5,7 +5,8 @@
 let votingRounds = 25;
 const productArray = [];
 let randomIndexArray = [];
-
+let randomNumber = [];
+let previousRandomIndexArray = [];
 
 // ***** DOM WINDOWS ****
 let imgContainer = document.getElementById('img-container');
@@ -25,44 +26,9 @@ function Product(name, imageExtension = 'jpg') {
 
 // **** CANVAS ELEMENT ****
 
-let ctx = document.getElementById('resultsChart');
+let ctx = document.getElementById('resultsChart').getContext('2d');
 
 // **** HELPER FUNCTIONS / UTILITIES ****
-
-function randomIndexGenerator() {
-  return Math.floor(Math.random() * productArray.length);
-}
-
-function renderImgs() {
-
-  while (randomIndexArray.length < 3) {
-    let randomNumber = randomIndexGenerator();
-    if (!randomIndexArray.includes(randomNumber)) {
-      randomIndexArray.push(randomNumber);
-    }
-  }
-
-  let imageOneIndex = randomIndexArray.pop();
-  let imageTwoIndex = randomIndexArray.pop();
-  let imageThreeIndex = randomIndexArray.pop();
-
-  imgOne.src = productArray[imageOneIndex].image;
-  imgOne.title = productArray[imageOneIndex].name;
-
-  imgTwo.src = productArray[imageTwoIndex].image;
-  imgTwo.title = productArray[imageTwoIndex].name;
-
-  imgThree.src = productArray[imageThreeIndex].image;
-  imgThree.title = productArray[imageThreeIndex].name;
-
-  productArray[imageOneIndex].views++;
-  productArray[imageTwoIndex].views++;
-  productArray[imageThreeIndex].views++;
-}
-
-// updated random index generator
-
-let previousRandomIndexArray = []; // Store the previous set of random indices
 
 function getRandomUniqueIndices() {
   let uniqueIndices = [];
@@ -154,18 +120,18 @@ function renderChart() {
       datasets: [{
         label: '# of Views',
         data: productViews,
-        borderWidth: 1,
-        borderColor: 'white',
+        borderWidth: 4,
+        borderColor: 'purple',
         backgroundColor: 'purple',
+        hoverBackgroundColor: 'red',
       },
       {
         label: '# of Votes',
         data: productVotes,
-        color: 'white',
-        font: bold,
-        borderWidth: 1,
-        borderColor: 'white',
-        backgroundColor: 'yellow',
+        borderWidth: 4,
+        borderColor: 'green',
+        backgroundColor: 'green',
+        hoverBackgroundColor: 'blue',
       }
       ]
     },
@@ -209,16 +175,3 @@ renderImgs();
 
 imgContainer.addEventListener('click', handleImgClick);
 resultBtn.addEventListener('click', handleShowResults);
-
-// As a marketeer, I want to prevent users from seeing the same image in two subsequent iterations, so that they are not biased.
-// done: Update your algorithm to randomly generate three unique product images from the images directory.
-// done: Update your algorithm so that new products are generated, confirm that these products are not duplicates from the immediate previous set.
-
-// As a marketing manager, I would like a visual representation of how many times a product was clicked so that I can visually analyze the results.
-
-// done: Using ChartJS (imported from CDN), display the vote totals and the number of times a product was viewed in a bar chart format. (hint: don’t forget about the <canvas> tags)
-// done: Place the bar chart in the section located beneath your three product images
-// done: The bar charts should only appear after all voting data has been collected.
-// TODO: Run a Lighthouse Accessbility report. Make necessary updates to your application based on the report to get your score above 80.
-
-// TODO: Add a screenshot of your score to your README.md file.
