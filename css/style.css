@@ -25,8 +25,8 @@ p {
 /* Style the grid container */
 .grid-container {
   display: grid;
-  grid-template-columns: 200px 200px 200px 200px;
-  grid-template-rows: 300px 400px 200px 500px;
+  grid-template-columns: 200px 200px 100px 200px 200px;
+  grid-template-rows: 500px 500px 500px 500px 500px;
   grid-gap: 10px;
   row-gap: 30px;
   max-width: 1025;
@@ -36,38 +36,72 @@ p {
   background-color: rgb(63, 63, 63);
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 50px 200px 200px 200px 50px;
+  grid-template-rows: 200px 200px 100px 100px 500px;
+  grid-gap: 0px;
+  row-gap: 10px;
+  column-gap: 0px;
+  max-width: 1025;
+  margin: 0px;
+  padding-bottom: 50px;
+  background-color: rgb(63, 63, 63);
+  /* justify-content: center; */
+  align-items: center;
+}
+
 /* Style the grid items */
 /* header title */
 .grid-item1 {
   grid-column: 1 / span 5;
+  grid-row: 1;
   padding: 20px;
   text-align: center;
 }
 
-/* images to click */
-.grid-item2 {
+section #img-container .grid-item2 {
+  /* This element will be a grid item, but also a flex container */
+  grid-row: 2;
   grid-column: 1 / span 5;
-  justify-content: space-around;
-  justify-content: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
-  text-align: center;
+  object-fit: contain;
+  margin-top: 80px;
 }
 
 .grid-item2 img {
-  max-width: 300px;
+  width: 200px;
   max-height: 300px;
-  margin: 20px;
-  align-items: center;
-  border: 2px solid aquamarine;
+  margin: 10px;
+  border: 2px solid transparent;
 }
+
+/*-- add hover states so the user can tell what 
+behavior is expected of them--*/
+.grid-item2 img:hover {
+  border: 5px solid rosybrown;
+  cursor: pointer;
+}
+
+/* once voting ends */
+.grid-item2.no-voting img:hover {
+  border: 5px solid transparent;
+  cursor: none;
+}
+
 
 /* results button */
 .grid-item3 {
-  grid-column: 3 / 5;
-  align-items: center;
+  display: grid;
+  grid-row: 4;
+  grid-column: 3;
 }
 
-#show-results-btn {
+.grid-item3 #show-results-btn {
   width: 200px;
   height: 100px;
   color: white;
@@ -79,9 +113,9 @@ p {
 
 /* canvas results graph */
 .grid-item4 {
+  display: grid;
+  grid-row: 5;
   grid-column: 1 / span 5;
-  height: 600px;
-  padding: 40px;
-  background-color: rgb(255, 255, 255);
-  text-align: center;
+  margin-bottom: 20px;
+  color: white;
 }
