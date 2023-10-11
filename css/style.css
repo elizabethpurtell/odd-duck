@@ -23,18 +23,6 @@ p {
 }
 
 /* Style the grid container */
-.grid-container {
-  display: grid;
-  grid-template-columns: 200px 200px 100px 200px 200px;
-  grid-template-rows: 500px 500px 500px 500px 500px;
-  grid-gap: 10px;
-  row-gap: 30px;
-  max-width: 1025;
-  margin: 50px;
-  padding-bottom: 50px;
-  justify-content: center;
-  background-color: rgb(63, 63, 63);
-}
 
 .grid-container {
   display: grid;
