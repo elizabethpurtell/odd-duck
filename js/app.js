@@ -64,7 +64,7 @@ function renderImgs() {
   imgThree.src = productArray[imageThreeIndex].image;
   imgThree.title = productArray[imageThreeIndex].name;
 
-  // DONE: Increase the product views
+  // Increase the product views
   productArray[imageOneIndex].views++;
   productArray[imageTwoIndex].views++;
   productArray[imageThreeIndex].views++;
@@ -164,9 +164,6 @@ console.log('products from local storage >>>', retrievedProduct);
 // step 4 - convert to usable code
 let parsedProduct = JSON.parse(retrievedProduct);
 console.log('my parsed products >>>', parsedProduct);
-
-
-//  *** happy path out of the woods ***
 
 if (retrievedProduct) {
   productArray = parsedProduct;
