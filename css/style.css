@@ -10,7 +10,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-h3 {
+h2 {
   font-size: 1.5rem;
   color: rgb(0, 255, 26);
   margin: 20px;
@@ -34,8 +34,8 @@ p {
   max-width: 1025;
   margin: 0px;
   padding-bottom: 50px;
-  background-color: rgb(63, 63, 63);
-  /* justify-content: center; */
+  background-color: rgb(32, 32, 32);
+  justify-content: center;
   align-items: center;
 }
 
@@ -66,6 +66,7 @@ section #img-container .grid-item2 {
   max-height: 300px;
   margin: 10px;
   border: 2px solid transparent;
+  background-color: white;
 }
 
 /*-- add hover states so the user can tell what 
@@ -93,10 +94,11 @@ behavior is expected of them--*/
   width: 200px;
   height: 100px;
   color: white;
-  background-color: red;
+  background-color: rgb(2, 157, 17);
   border-radius: 10px;
-  font-size: 1.75rem;
-  font-weight: 900;
+  border: 4px double #cccccc;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 /* canvas results graph */
